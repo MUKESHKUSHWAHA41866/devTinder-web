@@ -8,6 +8,7 @@ import { BASE_URL } from '../utils/constants';
 const login = () => {
   const [emailId, setEmailId] = useState("mukesh@gmail.com");
   const [password, setPassword] = useState("Mukesh@123");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,6 +25,7 @@ const login = () => {
   navigate("/");
   }
     catch(err){
+      setError(err?.response?.data || "Somethings went wrong");
       console.error(err)
     }
   }
@@ -45,6 +47,7 @@ const login = () => {
    
 </fieldset>
      </div>
+     <p className='text-red-600'>{error}</p>
     <div className="card-actions justify-center m-2">
       <button className="btn btn-primary" onClick={handleLogin}>Login</button>
     </div>
