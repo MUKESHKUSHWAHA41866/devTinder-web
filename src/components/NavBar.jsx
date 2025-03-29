@@ -9,7 +9,7 @@ const NavBar = () => {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(user);
+  // console.log(user);
 
   const handleLogout = async ( )=> {
     try {
